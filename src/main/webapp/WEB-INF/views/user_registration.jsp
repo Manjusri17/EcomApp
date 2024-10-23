@@ -27,13 +27,16 @@
         }
 
         function validateMobileNo() {
-            const mobileNo = document.getElementById('mobileNo');
-            if (!/^\d{10}$/.test(mobileNo.value)) {
-                document.getElementById('mobileError').textContent = 'Mobile No must be exactly 10 digits.';
-            } else {
-                document.getElementById('mobileError').textContent = '';
-            }
-        }
+	           const mobileNo = document.getElementById('mobileNo');
+	           const mobilePattern = /^[6-9]\d{9}$/;  // Regex for mobile starting with 6-9 and exactly 10 digits
+
+	           if (!mobilePattern.test(mobileNo.value)) {
+	               document.getElementById('mobileError').textContent = 'Mobile Number must start with 6, 7, 8, or 9 and should be exactly 10 digits.';
+	           } else {
+	               document.getElementById('mobileError').textContent = '';
+	           }
+	       }
+
 
         function validateEmail() {
             const email = document.getElementById('email');

@@ -94,7 +94,8 @@
         function validateCategoryName() {
             const categoryName = document.getElementById('categoryName');
             const categoryNameError = document.getElementById('categoryNameError');
-            const regex = /^[A-Za-z]{1,15}$/;
+            const regex = /^[A-Za-z ]{1,15}$/;
+
             if (!regex.test(categoryName.value)) {
                 categoryNameError.textContent = 'Invalid category name. Only alphabets allowed (max 15 characters).';
                 categoryNameError.style.display = 'block';

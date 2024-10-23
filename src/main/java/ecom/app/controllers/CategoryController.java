@@ -32,45 +32,43 @@ public class CategoryController {
 
     @GetMapping("/add")
     public String showAddCategoryForm() {
-        return "addCategory"; // This should return your JSP file name
+        return "addCategory"; 
     }
 
     @PostMapping("/add")
     public String addCategory(@ModelAttribute Category category, 
                               @RequestParam("category_image") MultipartFile file,
                               RedirectAttributes attributes, 
-                              HttpSession session) { // Inject HttpSession
+                              HttpSession session) { 
         try {
             if (!file.isEmpty()) {
                 category.setCategory_image(file);
             }
-            // Insert category and get the generated ID
             int generatedCategoryId = categoryDao.insertCategory(category);
             
-            // Store the category ID in the session
             session.setAttribute("categoryId", generatedCategoryId);
             
             attributes.addFlashAttribute("message", "Category added successfully!");
         } catch (IOException | SQLException e) {
             attributes.addFlashAttribute("error", "Error adding Category: " + e.getMessage());
         }
-        return "redirect:/category/dashboard"; // Redirect to the dashboard after adding
+        return "redirect:/category/dashboard"; 
     }
     
     @GetMapping("/dashboard")
     public String showDashboard(Model model, HttpSession session) {
-        // You can access the categoryId from the session here if needed
-        Integer categoryId = (Integer) session.getAttribute("categoryId");
-        session.setAttribute("categoryId", categoryId); // Add it to the model if needed
+
+    	Integer categoryId = (Integer) session.getAttribute("categoryId");
+        session.setAttribute("categoryId", categoryId); 
         
         return "superadmin_dashboard"; 
     }
     
     @GetMapping("/view")
     public String viewcategory(Model model) {
-    	List<Category> categories = productDaoImpl.getAllCategories(); // Fetch all categories
+    	List<Category> categories = productDaoImpl.getAllCategories(); 
         model.addAttribute("categories", categories);
-        return "display_category"; // This should return your JSP file name
+        return "display_category"; 
     }
     
 }

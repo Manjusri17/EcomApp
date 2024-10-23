@@ -119,11 +119,31 @@
 		    padding: 10px; /* Padding for the footer */
 		    border-top: 1px solid #ddd; /* Light grey top border */
 		}
+		
+		.btn-back {
+		            background-color: #295F98; /* Dark blue */
+		            border: none;
+		            color: white; /* White text */
+		            font-size: 16px; /* Font size */
+		            border-radius: 5px; /* Rounded edges */
+		            padding: 10px 15px; /* Padding for button */
+		            cursor: pointer;
+		            position: absolute; /* Absolute positioning */
+		            top: 20px; /* Distance from the top */
+		            right: 40px; /* Distance from the right */
+		            transition: background-color 0.3s; /* Smooth transition */
+		        }
+ 
+		        .btn-back:hover {
+		            background-color: #1a3a6e; /* Darker blue on hover */
+		        }
 
 	
     </style>
 </head>
 <body>
+
+<button class="btn-back" onclick="window.location.href='/subadmin'">Back to Dashboard</button>
     <div class="report-container">
         <h2>Retailer Sales Performance Report</h2>
 

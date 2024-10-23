@@ -323,8 +323,8 @@ public class SuperAdminController {
 		    String emailRegex = "^[\\w-\\.]+@gmail\\.com$";
 		    
 		    // Check email length
-		    if (email.length() < 5 || email.length() > 25) {
-		        model.addAttribute("error", "Email must be between 5 and 25 characters.");
+		    if (email.length() < 11 || email.length() > 30) {
+		        model.addAttribute("error", "Email must be between 11 and 30 characters.");
 		        return "forgot_password"; // Stay on the same page with error message
 		    }
 	 

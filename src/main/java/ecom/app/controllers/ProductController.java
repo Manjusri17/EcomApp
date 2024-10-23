@@ -214,10 +214,10 @@ public class ProductController {
 	
 	@GetMapping("/add1")
     public String products(Model model) {
-        List<Category> categories =  productDaoImpl.getAllCategories(); // Fetch categories from the database
-        model.addAttribute("categories", categories); // Add categories to the model
-        return "products"; // Return the name of the JSP file
-    }
+        List<Category> categories =  productDaoImpl.getAllCategories(); 
+        model.addAttribute("categories", categories); 
+        return "products"; 
+        }
  
        @GetMapping("/display1")
     public String listProducts(Model model) {
